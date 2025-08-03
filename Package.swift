@@ -307,7 +307,7 @@ if enableBenchmarking {
 // Set the minimum macOS version for the package
 #if canImport(Darwin)
 package.platforms = [
-    .iOS(.v26),
+    .iOS(.v18),
     .macOS(.v15), // Constrained by UInt128 support
 ]
 #endif
