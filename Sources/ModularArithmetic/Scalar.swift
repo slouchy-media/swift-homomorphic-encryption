@@ -12,6 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// MARK: ── UInt128 support ──────────────────────────────────────────────
+
+@available(iOS 18, macOS 15, watchOS 11, tvOS 18, *)
+extension UInt128: DoubleWidthType {
+    public typealias Scalar = UInt64
+}
+
+// MARK: ── UInt64 that depends on UInt128 ───────────────────────────────
+
+@available(iOS 18, macOS 15, watchOS 11, tvOS 18, *)
+extension UInt64: CoreScalarType {
+    public typealias DoubleWidth  = UInt128
+    public typealias SignedScalar = Int64
+
+    public static var rnsCorrectionFactor: UInt64 {
+        (1 << 62) - 40797
+    }
+
+    public static var mTilde: UInt64 { 1 << 32 }
+}
+
 /// Scalar type.
 public protocol CoreScalarType: FixedWidthInteger, UnsignedInteger, Sendable
     where Self.Magnitude: Sendable
