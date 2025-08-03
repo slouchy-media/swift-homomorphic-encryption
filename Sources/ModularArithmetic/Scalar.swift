@@ -492,7 +492,7 @@ extension UInt64: DoubleWidthType {
 }
 
 @available(iOS 18, macOS 15, watchOS 11, tvOS 18, *)
-extension UInt128: DoubleWidthType: DoubleWidthType {
+extension UInt128: DoubleWidthType {
     public typealias Scalar = UInt64
 }
 
