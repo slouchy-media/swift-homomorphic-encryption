@@ -16,6 +16,7 @@
 @usableFromInline
 package typealias NistAes128Ctr = BufferedRng<NistCtrDrbg>
 
+@available(iOS 18, macOS 15, watchOS 11, tvOS 18, *)
 extension NistAes128Ctr {
     /// Number of bytes in the AES-128 seed.
     @usableFromInline static let SeedCount: Int = NistCtrDrbg.SeedCount
